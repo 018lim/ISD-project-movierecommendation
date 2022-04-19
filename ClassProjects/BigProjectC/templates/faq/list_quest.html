@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Frequently Asked Questions</title>
+</head>
+<body>
+<ul>
+    {%  for i in questions %}
+        <li> {{ i.question_text }}, {{ i.pub_date }} <a href ="{%url 'list_choice' i.id %}" >Check Choice  </a></li>
+    {%  endfor %}
+</ul>
+</body>
+</html>

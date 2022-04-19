@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewpiort" content="width=device-width, initial-scale=1"/>
+
+    <title>PATH</title>
+
+    <link href="../Styles/index_style.css"  rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="../Resources/materialize/css/materialize.min.css"  media="screen,projection"/>
+
+    <link rel="shortcut icon" href="../Resources/svg-flat.png" type="image/png"/>
+  </head>
+  <body>
+    <ul class="dropdown-content" id="dropdown_shapes">
+      <li><a href="basic_shapes.html">Formas Básicas</a></li>
+      <li class="divider"></li>
+      <li><a href="path_page.html">&#60;PATH&#62;</a></li>
+    </ul>
+    <ul class="dropdown-content" id="dropdown_shapes_2">
+      <li><a href="basic_shapes.html">Formas Básicas</a></li>
+      <li class="divider"></li>
+      <li><a href="path_page.html">&#60;PATH&#62;</a></li>
+    </ul>
+    <nav class="teal">
+      <div class="nav-wrapper">
+        <a href="#!" class="brand-logo" id="title_logo">SVG</a>
+        <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+        <ul class="right hide-on-med-and-down" id="menu_header">
+          <li><a href="index.html">Introducción</a></li>
+          <li><a href="introsvg.html">&#60;SVG&#62;</a></li>
+          <li><a class="dropdown-button" href="#!" data-activates="dropdown_shapes">Formas<i class="material-icons right">arrow_drop_down</i></a></li>
+          <li><a href="other_tags.html">Otras etiquetas</a></li>
+        </ul>
+        <ul class="side-nav" id="mobile-demo">
+          <li><h2 class="center-align teal-text">SVG</h2></li>
+          <li><a href="index.html">Introducción</a></li>
+          <li><a href="introsvg.html">&#60;SVG&#62;</a></li>
+          <li><a class="dropdown-button" href="#!" data-activates="dropdown_shapes_2">Formas<i class="material-icons right">arrow_drop_down</i></a></li>
+          <li><a href="other_tags.html">Otras etiquetas</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="container">
+      <h1 class="center-align">Otras Etiquetas e.e</h1>
+
+      <div class="estilo">
+        <h3>&#60;style&#62;&#60;/style&#62;</h3>
+        <div class="row">
+          <div class="col s12 m12 l12 xl12">
+            <p>Permite agregar directamente hojas de estilo en el contenido SVG.<br/>
+            Tiene exactamente los mismos atributos que el &#60;style&#62; de HTML.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="texto">
+        <h3>&#60;text&#62;&#60;/text&#62;</h3>
+        <div class="row">
+          <div class="col s12 m12 l6 xl6">
+            <p>Con esto se puede agregar texto.<br/>
+            Nota: También es escalable.</p>
+            <h5>Atributos:</h5>
+            <ul class="collection">
+              <li class="collection-item"><span class="teal-text">x</span> &#38; <span class="teal-text">y</span>: Coordenadas del texto.</li>
+              <li class="collection-item"><span class="teal-text">font-family</span>: Tipo de letra.</li>
+              <li class="collection-item"><span class="teal-text">font-size</span>: Tamaño de letra.</li>
+              <li class="collection-item"><span class="teal-text">text-anchor</span>: Posición de la letra (start | middle | end).</li>
+              <li class="collection-item"><span class="teal-text">lengthAdjust</span>: Espaciado entre letras (spacing | spacingAndGlyphs).</li>
+              <li class="collection-item"><span class="teal-text">text-length</span>: Ancho del texto.</li>
+            </ul>
+          </div>
+          <div class="col s12 m12 l6 xl6">
+            <div class="row">
+              <div class="col s4 m4 l4 xl4">
+                Explicación de text-anchor:
+              </div>
+              <div class="col s8 m8 l8 xl8">
+                <img src="../Resources/imagen_text_anchor.png" width="40%"/>
+              </div>
+            </div>
+            <div class="card  teal lighten-2">
+              <div class="card-content white-text">
+                <p> &#60;text x="20" y="10" text-anchor="start" lengthAdjust="spacing"&#62;</p>
+                <p>A</p>
+                <p>&#60;/text&#62;</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="imagen">
+        <h3>&#60;image/&#62;</h3>
+        <div class="row">
+          <div class="col s12 m12 l6 xl6">
+            <p>Con esto se puede agregar una imagen.<br/>
+            Nota: Esta no es escalable.</p>
+            <h5>Atributos:</h5>
+            <ul class="collection">
+              <li class="collection-item"><span class="teal-text">x</span> &#38; <span class="teal-text">y</span>: Coordenadas de la imágen.</li>
+              <li class="collection-item"><span class="teal-text">width</span>: Ancho de la imagen.</li>
+              <li class="collection-item"><span class="teal-text">height</span>: Alto de la imágen.</li>
+              <li class="collection-item"><span class="teal-text">xlink:href</span>: Dirección de la imagen.</li>
+              <li class="collection-item"><span class="teal-text">preserveAspectRatio</span>: Sepa Dios.</li>
+            </ul>
+          </div>
+          <div class="col s12 m12 l6 xl6">
+            <div class="card  teal lighten-2">
+              <div class="card-content white-text">
+                <p> &#60;image xlink:href="rura.png" x="50" y="10"  width="30%"/&#62;</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="grupo">
+        <h3>&#60;g&#62;&#60;/g&#62;</h3>
+        <div class="row">
+          <div class="col s12 m12 l6 xl6">
+            <p>Con esta etiqueta se pueden agrupar elementos que comparten mismos atributos y por lo tanto son similares.<br/>
+            Nota: Esta etiqueta no tiene atributos específicos.</p>
+            <h5>Atributos:</h5>
+            <ul class="collection">
+              <li class="collection-item"><span class="teal-text">xlink:href</span>: URL que redireccionaría el elemento.</li>
+              <li class="collection-item"><span class="teal-text">width</span>: Ancho de la imagen.</li>
+              <li class="collection-item"><span class="teal-text">height</span>: Alto de la imágen.</li>
+              <li class="collection-item"><span class="teal-text">xlink:href</span>: Dirección de la imagen.</li>
+              <li class="collection-item"><span class="teal-text">preserveAspectRatio</span>: Sepa Dios.</li>
+            </ul>
+          </div>
+          <div class="col s12 m12 l6 xl6">
+            <div class="card  teal lighten-2">
+              <div class="card-content white-text">
+                <p> &#60;g stroke="green" fill="white" stroke-width="5"&#62;</p>
+                <p>...</p>
+                <p>...</p>
+                <p>...</p>
+                <p>&#60;/g&#62;</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hipvinc">
+        <h3>&#60;a&#62;&#60;/a&#62;</h3>
+        <div class="row">
+          <div class="col s12 m12 l6 xl6">
+            <p>Con esta etiqueta se pueden agregar hipervínculos a los elementos SVG como si se tratase de un HTML.<br/>
+            Nota: Cuidado con el elemento href, algunos buscadores ya no podrán comprender atributos xlink:href y sería sólo href.</p>
+          </div>
+          <div class="col s12 m12 l6 xl6">
+            <div class="card  teal lighten-2">
+              <div class="card-content white-text">
+                <p> &#60;a xlink:href="https://www.tulindolink.com"&#62;</p>
+                <p>...</p>
+                <p>...</p>
+                <p>...</p>
+                <p>&#60;/a&#62;</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <p><a class="waves-effect waves-light btn" href="#prac2">Práctica 2</a></p>
+      </div>
+
+      <div class="practice3">
+        <p><button class="waves-effect waves-light btn" onclick="window.open('Practicas/prac3.html','','width=1000, height=650')">Ejemplo E.</button></p>
+      </div>
+
+      <div>
+        <p><a class="waves-effect waves-light btn" href="#tarea1">Tarea</a></p>
+      </div>
+
+    </div>
+
+    <div id="prac2" class="modal">
+      <div class="modal-content">
+        <h4 class="text-teal">Práctica 2: Uso del elemento PATH.</h4>
+        <p>Realizar una gráfica de pastel o de anillo que muestre los resultados dados de la encuesta contestada al inicio de la clase y al lado de esta, dibujar un bezígono.</p>
+        <p>¿Qué resultados exactamente? El que gusten. (Si usan el de "¿Cuál es tu sexo?" la relacionan con la pregunta sobre git y viceversa)</p>
+        <p>Sugerencias:</p>
+        <p class="textPrac1">-Cantidad de hombres y mujeres que contestaron sí y no a la pregunta sobre git.</p>
+        <p class="textPrac1">-Cantidad de respuestas dadas de todas las categorías sobre el color favorito.</p>
+        <p>Tiempo límite: 40 min.</p>
+        <button class="btn waves-effect waves-light" id="timeButton">Comienzo</button> <span id="timeI"></span>
+      </div>
+      <div class="modal-footer">
+        <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">OK</a>
+      </div>
+    </div>
+
+    <div id="tarea1" class="modal">
+      <div class="modal-content">
+        <h4 class="text-teal">Tarea.</h4>
+        <p>Enviar una animación con los sprites que gusten y fondo de su agrado de lo que ustedes gusten.</p>
+        <p>Tiempo límite: Antes de las 00:01 hrs del día 20 de mayo de 2017.</p>
+        <p>Correo: jramon.avalos@comunidad.unam.mx</p>
+        <p>Asunto: "Tarea SVG"</p>
+        <p>En el mensaje colocar tanto su nombre y los archivos necesarios en una carpeta comprimida. Si tiene algo extra como algún evento que se active durante la animación también menciónenla.</p>
+      </div>
+      <div class="modal-footer">
+        <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">OK</a>
+      </div>
+    </div>
+
+    <footer class="page-footer teal">
+        <div class="container">
+          <div class="row">
+            <div class="col l12 s12">
+              <span class="white-text">Página desarrollada por Avalos Gutiérrez Juan Ramón.</span>
+            </div>
+          </div>
+        </div>
+        <div class="footer-copyright">
+          <div class="container">
+            © 2017 All rights reserved
+          </div>
+        </div>
+    </footer>
+
+    <script type="text/javascript" src="../Resources/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="../Resources/materialize/js/materialize.min.js"></script>
+
+    <script type="text/javascript" src="../Resources/normalevents.js"></script>
+  </body>
+</html>

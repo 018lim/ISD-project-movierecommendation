@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewpiort" content="width=device-width, initial-scale=1"/>
+
+    <title>Formas Básicas</title>
+
+    <link href="../Styles/index_style.css"  rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="../Resources/materialize/css/materialize.min.css"  media="screen,projection"/>
+
+    <link rel="shortcut icon" href="../Resources/svg-flat.png" type="image/png"/>
+  </head>
+
+  <body>
+    <ul class="dropdown-content" id="dropdown_shapes">
+      <li><a href="basic_shapes.html">Formas Básicas</a></li>
+      <li class="divider"></li>
+      <li><a href="path_page.html">&#60;PATH&#62;</a></li>
+    </ul>
+    <ul class="dropdown-content" id="dropdown_shapes_2">
+      <li><a href="basic_shapes.html">Formas Básicas</a></li>
+      <li class="divider"></li>
+      <li><a href="path_page.html">&#60;PATH&#62;</a></li>
+    </ul>
+    <nav class="teal">
+      <div class="nav-wrapper">
+        <a href="#!" class="brand-logo" id="title_logo">SVG</a>
+        <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+        <ul class="right hide-on-med-and-down" id="menu_header">
+          <li><a href="index.html">Introducción</a></li>
+          <li><a href="introsvg.html">&#60;SVG&#62;</a></li>
+          <li><a class="dropdown-button" href="#!" data-activates="dropdown_shapes">Formas<i class="material-icons right">arrow_drop_down</i></a></li>
+          <li><a href="other_tags.html">Otras etiquetas</a></li>
+        </ul>
+        <ul class="side-nav" id="mobile-demo">
+          <li><h2 class="center-align teal-text">SVG</h2></li>
+          <li><a href="index.html">Introducción</a></li>
+          <li><a href="introsvg.html">&#60;SVG&#62;</a></li>
+          <li><a class="dropdown-button" href="#!" data-activates="dropdown_shapes_2">Formas<i class="material-icons right">arrow_drop_down</i></a></li>
+          <li><a href="other_tags.html">Otras etiquetas</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="container">
+      <h1 class="center-align">Formas Básicas</h1>
+      <div class="rect">
+        <h2>&#60;rect/&#62;</h2>
+        <div class="row">
+          <div class="col s12 m12 l5 xl5">
+            Para hacer rectángulos e.e
+            <h5>Atributos:</h5>
+            <ul class="collection">
+              <li class="collection-item"><span class="teal-text text-darken-2">x</span> &#38; <span class="teal-text text-darken-2">y</span>: Coordenadas de inicio.</li>
+              <li class="collection-item"><span class="teal-text text-darken-2">width</span>: Ancho del rectángulo.</li>
+              <li class="collection-item"><span class="teal-text text-darken-2">height</span>: Alto del rectángulo.</li>
+              <li class="collection-item"><span class="teal-text text-darken-2">rx</span> &#38; <span class="teal-text text-darken-2">ry</span>: Esquinas redondeadas.</li>
+            </ul>
+            <div class="card  teal lighten-2">
+              <div class="card-content white-text">
+                <p id="rectangulo_card">
+                  &#60;rect<br/>x="5"<br/>y="5"<br/>width="120"<br/>height="90"/&#62;
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col s12 m12 l7 xl7">
+            <div class="row">
+              <div class="col s12 m12 l12 xl12">
+                <form action="#">
+                  <p class="range-field">
+                    <label>X</label>: <input type="range" id="x" min="0" max="100" onchange="cambio(this, 'rectangulo')" value="5"/>
+                  </p>
+                  <p class="range-field">
+                    <label>Y</label>: <input type="range" id="y" min="0" max="100" onchange="cambio(this, 'rectangulo')" value="5"/>
+                  </p>
+                  <p class="range-field">
+                    <label>width</label>: <input type="range" id="width" min="0" max="200" onchange="cambio(this, 'rectangulo')" value="120"/>
+                  </p>
+                  <p class="range-field">
+                    <label>height</label>: <input type="range" id="height" min="0" max="150" onchange="cambio(this, 'rectangulo')" value="90"/>
+                  </p>
+                </form>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col s12 m12 l12 xl12">
+                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="200" height="150">
+                  <rect x="5" y="5" width="120" height="90" fill="black" id="rectangulo"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="circle">
+        <h2>&#60;circle/&#62;</h2>
+        <div class="row">
+          <div class="col s12 m12 l5 xl5">
+            Para hacer círculos e.e
+            <h5>Atributos:</h5>
+            <ul class="collection">
+              <li class="collection-item"><span class="teal-text text-darken-2">cx</span> &#38; <span class="teal-text text-darken-2">cy</span>: Coordenadas del centro.</li>
+              <li class="collection-item"><span class="teal-text text-darken-2">r</span>: Radio del círculo.</li>
+            </ul>
+            <div class="card  teal lighten-2">
+              <div class="card-content white-text">
+                <p id="circulo_card">
+                  &#60;circle<br/>cx="30"<br/>cy="30"<br/>r="20"/&#62;
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col s12 m12 l7 xl7">
+            <div class="row">
+              <div class="col s12 m12 l12 xl12">
+                <form action="#">
+                  <p class="range-field">
+                    <label>cx</label>: <input type="range" id="cx" min="0" max="100" onchange="cambio(this, 'circulo')" value="30"/>
+                  </p>
+                  <p class="range-field">
+                    <label>cy</label>: <input type="range" id="cy" min="0" max="100" onchange="cambio(this, 'circulo')" value="30"/>
+                  </p>
+                  <p class="range-field">
+                    <label>r</label>: <input type="range" id="r" min="0" max="100" onchange="cambio(this, 'circulo')" value="20"/>
+                  </p>
+                </form>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col s12 m12 l12 xl12">
+                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="200" height="150">
+                  <circle cx="30" cy="30" r="20" fill="black" id="circulo"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="ellipse">
+        <h2>&#60;ellipse/&#62;</h2>
+        <div class="row">
+          <div class="col s12 m12 l5 xl5">
+            Para hacer elipses e.e
+            <h5>Atributos:</h5>
+            <ul class="collection">
+              <li class="collection-item"><span class="teal-text text-darken-2">cx</span> &#38; <span class="teal-text text-darken-2">cy</span>: Coordenadas del centro.</li>
+              <li class="collection-item"><span class="teal-text text-darken-2">rx</span> &#38; <span class="teal-text text-darken-2">ry</span>: Radio horizontal y vertical.</li>
+            </ul>
+            <div class="card  teal lighten-2">
+              <div class="card-content white-text">
+                <p id="elipse_card">
+                  &#60;ellipse<br/>cx="30"<br/>cy="30"<br/>rx="30"<br/>ry="20"/&#62;
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col s12 m12 l7 xl7">
+            <div class="row">
+              <div class="col s12 m12 l12 xl12">
+                <form action="#">
+                  <p class="range-field">
+                    <label>cx</label>: <input type="range" id="cx" min="0" max="100" onchange="cambio(this, 'elipse')" value="30"/>
+                  </p>
+                  <p class="range-field">
+                    <label>cy</label>: <input type="range" id="cy" min="0" max="100" onchange="cambio(this, 'elipse')" value="30"/>
+                  </p>
+                  <p class="range-field">
+                    <label>rx</label>: <input type="range" id="rx" min="0" max="100" onchange="cambio(this, 'elipse')" value="30"/>
+                  </p>
+                  <p class="range-field">
+                    <label>ry</label>: <input type="range" id="ry" min="0" max="100" onchange="cambio(this, 'elipse')" value="20"/>
+                  </p>
+                </form>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col s12 m12 l12 xl12">
+                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="200" height="150">
+                  <ellipse cx="30" cy="30" rx="30" ry="20" fill="black" id="elipse"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="polygon">
+        <h2>&#60;polygon/&#62;</h2>
+        <div class="row">
+          <div class="col s12 m12 l5 xl5">
+            Para hacer polígonos de lados rectos e.e<br/>
+            Mínimo de tres lados.
+            <h5>Atributos:</h5>
+            <ul class="collection">
+              <li class="collection-item"><span class="teal-text text-darken-2">points</span>: Coordenadas de los puntos/vértices.</li>
+            </ul>
+            <div class="card  teal lighten-2">
+              <div class="card-content white-text">
+                <p id="poligono_card">
+                  &#60;polygon<br/>points="5,5 10,90 100,30"/&#62;
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col s12 m12 l7 xl7">
+            <div class="row">
+              <div class="col s12 m12 l12 xl12">
+                <div class="row">
+                  <form action="#">
+                    <div class="input-field col s8 m8 l8 xl8">
+                      <input type="text" value="5,5 10,90 100,30" class="validate" id="points"/>
+                      <label for="points">points</label>
+                    </div>
+                    <a data-shape="points" class="waves-effect waves-light btn col s4 m4 l4 xl4" onclick="cambio(this, 'poligono')">Probar</a>
+                  </form>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col s12 m12 l12 xl12">
+                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="200" height="150">
+                  <polygon points="5,5 10,90 100,30" fill="black" id="poligono"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="line">
+        <h2>&#60;line/&#62;</h2>
+        <div class="row">
+          <div class="col s12 m12 l5 xl5">
+            Para hacer líneas rectas e.e
+            <h5>Atributos:</h5>
+            <ul class="collection">
+              <li class="collection-item"><span class="teal-text text-darken-2">x1</span> &#38; <span class="teal-text text-darken-2">y1</span>: Coordenada de inicio.</li>
+              <li class="collection-item"><span class="teal-text text-darken-2">x2</span> &#38; <span class="teal-text text-darken-2">y2</span>: Coordenada final.</li>
+            </ul>
+            <div class="card  teal lighten-2">
+              <div class="card-content white-text">
+                <p id="linea_card">
+                  &#60;line<br/>x1="30"<br/>y1="30"<br/>x2="30"<br/>y2="20"/&#62;
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col s12 m12 l7 xl7">
+            <div class="row">
+              <div class="col s12 m12 l12 xl12">
+                <form action="#">
+                  <p class="range-field">
+                    <label>x1</label>: <input type="range" id="x1" min="0" max="100" onchange="cambio(this, 'linea')" value="30"/>
+                  </p>
+                  <p class="range-field">
+                    <label>y1</label>: <input type="range" id="y1" min="0" max="100" onchange="cambio(this, 'linea')" value="30"/>
+                  </p>
+                  <p class="range-field">
+                    <label>x2</label>: <input type="range" id="x2" min="0" max="100" onchange="cambio(this, 'linea')" value="30"/>
+                  </p>
+                  <p class="range-field">
+                    <label>y2</label>: <input type="range" id="y2" min="0" max="100" onchange="cambio(this, 'linea')" value="20"/>
+                  </p>
+                </form>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col s12 m12 l12 xl12">
+                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="200" height="150">
+                  <line x1="30" y1="30" x2="30" y2="20" stroke="black" stroke-width="3" id="linea"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="polyline">
+        <h2>&#60;polyline/&#62;</h2>
+        <div class="row">
+          <div class="col s12 m12 l5 xl5">
+            Para hacer poli-líneas rectas e.e<br/>
+            Mínimo de dos puntos.
+            <h5>Atributos:</h5>
+            <ul class="collection">
+              <li class="collection-item"><span class="teal-text text-darken-2">points</span>: Coordenadas de los puntos/vértices.</li>
+            </ul>
+            <div class="card  teal lighten-2">
+              <div class="card-content white-text">
+                <p id="polilinea_card">
+                  &#60;polyline<br/>points="5,5 10,90 100,30" <br/>fill="none"/&#62;
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col s12 m12 l7 xl7">
+            <div class="row">
+              <div class="col s12 m12 l12 xl12">
+                <div class="row">
+                  <form action="#">
+                    <div class="input-field col s8 m8 l8 xl8">
+                      <input type="text" value="5,5 10,90 100,30" class="validate" id="points1"/>
+                      <label for="points1">points</label>
+                    </div>
+                    <a data-shape="points1" class="waves-effect waves-light btn col s4 m4 l4 xl4" onclick="cambio(this, 'polilinea')" >Probar</a>
+                  </form>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col s12 m12 l12 xl12">
+                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="200" height="150">
+                  <polyline points="5,5 10,90 100,30" fill="none" stroke="black" stroke-width="2" id="polilinea"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <p><a class="waves-effect waves-light btn" href="#prac1">Práctica 1</a></p>
+      </div>
+    </div>
+
+
+
+    <footer class="page-footer teal">
+        <div class="container">
+          <div class="row">
+            <div class="col l12 s12">
+              <span class="white-text">Página desarrollada por Avalos Gutiérrez Juan Ramón.</span>
+            </div>
+          </div>
+        </div>
+        <div class="footer-copyright">
+          <div class="container">
+            © 2017 All rights reserved
+          </div>
+        </div>
+    </footer>
+
+    <div id="prac1" class="modal">
+      <div class="modal-content">
+        <h4 class="text-teal">Práctica 1: Figuras básicas de SVG.</h4>
+        <p>Realizar un dibujo con las figuras recién aprendidas de SVG que involucre todas las figuras en almenos alguna parte.</p>
+        <p>¿Qué dibujo? El que ustedes gusten.</p>
+        <p>Sugerencias:</p>
+        <p class="textPrac1">-Pez en estanque (con contexto).</p>
+        <p class="textPrac1">-Isla con palmera.</p>
+        <p>Tiempo límite: 30 minutos</p>
+        <button class="btn waves-effect waves-light" id="timeButton">Comienzo</button> <span id="timeI"></span>
+      </div>
+      <div class="modal-footer">
+        <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">OK</a>
+      </div>
+    </div>
+
+    <script type="text/javascript" src="../Resources/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="../Resources/materialize/js/materialize.min.js"></script>
+
+    <script type="text/javascript" src="../Resources/normalevents.js"></script>
+  </body>
+</html>

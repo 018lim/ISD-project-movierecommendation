@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewpiort" content="width=device-width, initial-scale=1"/>
+
+    <title>Etiqueta svg</title>
+
+    <link href="../Styles/index_style.css"  rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="../Resources/materialize/css/materialize.min.css"  media="screen,projection"/>
+
+    <link rel="shortcut icon" href="../Resources/svg-flat.png" type="image/png"/>
+  </head>
+  <body>
+    <ul class="dropdown-content" id="dropdown_shapes">
+      <li><a href="basic_shapes.html">Formas Básicas</a></li>
+      <li class="divider"></li>
+      <li><a href="path_page.html">&#60;PATH&#62;</a></li>
+    </ul>
+    <ul class="dropdown-content" id="dropdown_shapes_2">
+      <li><a href="basic_shapes.html">Formas Básicas</a></li>
+      <li class="divider"></li>
+      <li><a href="path_page.html">&#60;PATH&#62;</a></li>
+    </ul>
+    <nav class="teal">
+      <div class="nav-wrapper">
+        <a href="#!" class="brand-logo" id="title_logo">SVG</a>
+        <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+        <ul class="right hide-on-med-and-down" id="menu_header">
+          <li><a href="index.html">Introducción</a></li>
+          <li><a href="introsvg.html">&#60;SVG&#62;</a></li>
+          <li><a class="dropdown-button" href="#!" data-activates="dropdown_shapes">Formas<i class="material-icons right">arrow_drop_down</i></a></li>
+          <li><a href="other_tags.html">Otras etiquetas</a></li>
+        </ul>
+        <ul class="side-nav" id="mobile-demo">
+          <li><h2 class="center-align teal-text">SVG</h2></li>
+          <li><a href="index.html">Introducción</a></li>
+          <li><a href="introsvg.html">&#60;SVG&#62;</a></li>
+          <li><a class="dropdown-button" href="#!" data-activates="dropdown_shapes_2">Formas<i class="material-icons right">arrow_drop_down</i></a></li>
+          <li><a href="other_tags.html">Otras etiquetas</a></li>
+        </ul>
+      </div>
+    </nav>
+
+      <div class="container">
+        <div>
+          <div class="row">
+            <h1>&#60;SVG&#62;</h1>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col s12 m12 l6 xl6">
+              <p>Para generar una imagen vectorial, que en este caso son imagenes de formato .svg, usamos la etiqueta &#60;SVG&#62;<br/>
+              Algunos atributos importantes son:</p>
+              <ul class="collection">
+                <li class="collection-item"><span class="teal-text text-darken-2">width</span>: Ancho de nuestra imagen svg.</li>
+                <li class="collection-item"><span class="teal-text text-darken-2">height</span>: Alto de nuestra imagen svg.</li>
+              </ul>
+              <blockquote>Por default son medidas en pixeles</blockquote>
+          </div>
+          <div class="col s12 m12 l6 xl6">
+            <div class="card  teal lighten-2">
+              <div class="card-content white-text">
+                <p>&#60;svg width="80" heigth="30"&#62; <br/>&#60;/svg&#62;</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="secret_part">
+          <h3>Namespaces</h3>
+          <div class="row">
+            <div class="col s12 m12 l6 xl6 namespace_definition">
+              <p>
+                Al ser SVG basado en XML es necesario ponerle un 'namespace' al contenido.<br/>
+                Un namespace es una cadena de caracteres que le dice a la computadora con que 'dialecto' se van a tratar las etiquetas.<br/>
+                Esta se asemeja mucho a una URL porque son unicas. No se deben de tratar como si fueran un enlace.
+                Los namespaces se declaran en la etiqueta &#60;svg&#62; con el atributo <code class="teal white-text">xmlns</code> con el valor de 'http://www.w3.org/2000/svg'.<br/>
+                También se deve de colocar la versión (1.1) con el atributo <code class="teal white-text">version</code>.
+              </p>
+            </div>
+            <div class="col s12 m12 l6 xl6">
+              <div class="card  teal lighten-2">
+                <div class="card-content white-text">
+                  <p>&#60;svg</p>
+                  <p class="namespaces_example">width="80"</p>
+                  <p class="namespaces_example">heigth="30"</p>
+                  <p class="namespaces_example">xmlns="http://www.w3.or/2000/svg"</p>
+                  <p class="namespaces_example">version="1.1"&#62;</p>
+                  <p>&#60;/svg&#62;</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <h3>Namespace prefixes</h3>
+          <button class="waves-effect waves-light btn-large" id="mostrar_prefijos">Mostrar</button>
+          <div class="row prefijos">
+            <div class="col s12 m12 l6 xl6 namespace_definition">
+              <p>
+                No sólo XML define sus propias etiquetas, sino también sus atributos.<br/>
+                Muchas etiquetas ya tienen sus atributos únicos y definidos pero hay algunos que son muy generales y es necesario definirlos para que puedan ser reutilizados en muchos otros elementos diferentes y todavía ser consideradoas para el mismo atributo.<br/>
+                Un ejemplo común es el atributo <code>href</code> definido por la especificación xlink.
+              </p>
+            </div>
+            <div class="col s12 m12 l6 xl6">
+              <div class="card  teal lighten-2">
+                <div class="card-content white-text">
+                  <p>&#60;svg</p>
+                  <p class="namespaces_example">width="80"</p>
+                  <p class="namespaces_example">heigth="30"</p>
+                  <p class="namespaces_example">.</p>
+                  <p class="namespaces_example">.</p>
+                  <p class="namespaces_example">.</p>
+                  <p class="namespaces_example">xmlns: xlink="http://www.w3.org/1999/xlink"&#62;</p>
+                  <p>&#60;/svg&#62;</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <h3>Agregarlo a la página</h3>
+          <h4>De manera rápida</h4>
+          <div class="row">
+            <div class="col s12 m12 l7 xl7 namespace_definition">
+              <p>
+                Se emplea la etiqueta &#60;img&#62; de HTML.<br/>
+                Se emplea el atributo <code>srcset</code> para que tome la imagen svg los navegadores compatibles y el atributo <code>src</code> se deja la imagen que tomatia si no cargara la imagen svg.
+              </p>
+              <blockquote>
+                <p>En caso de ser un fondo:</p>
+                <p class="namespaces_example">background: url("imagenpng.png") no-repeat center;</p>
+                <p class="namespaces_example">background-image: url("imagensvg.svg");</p>
+                <p class="namespaces_example">background-size: contain;</p>
+              </blockquote>
+            </div>
+            <div class="col s12 m12 l5 xl5">
+              <div class="card  teal lighten-2">
+                <div class="card-content white-text">
+                  <p>&#60;img</p>
+                  <p class="namespaces_example">src="imagen_png.png"</p>
+                  <p class="namespaces_example">alt="imagen de svg"</p>
+                  <p class="namespaces_example">srcset="imagen_svg.svg"</p>
+                  <p>/&#62;</p>
+                </div>
+              </div>
+            </div>
+            <div class="col s12 m12 l12 xl12">
+              <div class="z-depth-4 ventaja-desventaja #e0f2f1 teal lighten-5">
+                <h5>Ventajas:</h5>
+                <ul>
+                  <li><b>-</b>Rápido y de sintaxis de imagen familiar.</li>
+                  <li><b>-</b>Se puede poner la imagen dentro de un ipervínculo &#60;a&#62;.</li>
+                </ul>
+                <h5>Desventajas:</h5>
+                <ul>
+                  <li><b>-</b>No se puede manipular la imagen con JavaScript</li>
+                  <li><b>-</b>El CSS debe de incluirse en la imagen (en linea) sin poder ponerle hojas de estilo externas.</li>
+                  <li><b>-</b>No se puede volver a aplicar estilos a la imagen con seudoclases con CSS.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <h4>Incluirlo al HTML</h4>
+          <div class="row">
+            <div class="col s12 m12 l12 xl12">
+              <p>No es más que agregarlo como anteriormente lo vimos.</p>
+              <div class="z-depth-4 ventaja-desventaja #e0f2f1 teal lighten-5">
+                <h5>Ventajas:</h5>
+                <ul>
+                  <li><b>-</b>Puede reducir el tiempo de carga.</li>
+                  <li><b>-</b>Se puede emplear libremente los atributos de CSS.</li>
+                  <li><b>-</b>Única forma para usar animaciones cdd.</li>
+                  <li><b>-</b>Se puede envolver el svg en un hipervículo</li>
+                </ul>
+                <h5>Desventajas:</h5>
+                <ul>
+                  <li><b>-</b>Adecuado si se usa en un sólo lugar porque podría llegar a ser intensivo el mantenimiento.</li>
+                  <li><b>-</b>EL código SVG aumenta el codigo HTML.</li>
+                  <li><b>-</b>El navegador no puede almacenar en caché un SVG en línea, ya que podría almacenar en caché los recursos de imagen regulares.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <footer class="page-footer teal">
+          <div class="container">
+            <div class="row">
+              <div class="col l12 s12">
+                <span class="white-text">Página desarrollada por Avalos Gutiérrez Juan Ramón.</span>
+              </div>
+            </div>
+          </div>
+          <div class="footer-copyright">
+            <div class="container">
+              © 2017 All rights reserved
+            </div>
+          </div>
+      </footer>
+
+    <script type="text/javascript" src="../Resources/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="../Resources/materialize/js/materialize.min.js"></script>
+
+    <script type="text/javascript" src="../Resources/normalevents.js"></script>
+  </body>
+</html>

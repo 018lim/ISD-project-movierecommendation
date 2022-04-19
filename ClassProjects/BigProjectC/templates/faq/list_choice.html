@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>List of Choices</title>
+</head>
+<body>
+<ul>
+{%  for i in choices %}
+    <li> {{ i.choice_text }}, <a href="{{ i.url }}"> , {{ i.url }} </a></li>
+    {%  endfor %}
+</ul>
+</body>
+</html>

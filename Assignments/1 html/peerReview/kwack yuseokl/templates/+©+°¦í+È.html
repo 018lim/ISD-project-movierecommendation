@@ -1,0 +1,95 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+   <meta charset="UTF-8">
+   <title>회원가입창</title>
+  </head>
+<body>
+<center><img src="{% static 'C:\Users\user\PycharmProjects\django220325\static\fakeflix.png' %}" alt="fakeflix" style="text-align:center" width=250 height=100></center>
+<br>
+<br>
+<form method="post" action="form.aspx" enctype="multipart/form-data">
+   <fieldset>
+      <legend>계정 생성</legend>
+      <ul>
+      <li>아이디
+	<input type="text" name="아이디" value="아이디를 입력하시오" /></li><br>
+      <li>비밀번호
+	<input type="password" name="pass"  />
+      </li></ul>
+
+   </fieldset>
+   <fieldset>
+      <legend>개인 정보</legend>
+	<ul>
+        <li><label for="이름">이름</label>
+    <input type="text" name="이름" id="이름" /></li>
+      <br>
+      <li><label for="성별">성별</label>
+      <input name='gender' type="radio" value="남자" />
+      <label for="gm">남자</label>
+      <input name='gender' type="radio" value="여자" />
+      <label for="gm">여자</label></li>
+      <br>
+     <li><label for="생년월일">생년월일</label>
+     <input type="text" name="년도" value="년도" />
+     <select name="월">
+	  <option value="Value 1" selected="selected">1월</option>
+  	  <option value="Value 2">2월</option>
+	  <option value="Value 3">3월</option>
+	  <option value="Value 4">4월</option>
+	  <option value="Value 5">5월</option>
+	  <option value="Value 6">6월</option>
+	  <option value="Value 7">7월</option>
+	  <option value="Value 8">8월</option>
+	  <option value="Value 9">9월</option>
+	  <option value="Value 10">10월</option>
+	  <option value="Value 11">11월</option>
+	  <option value="Value 12">12월</option>
+      </select>
+      <select name="일">
+	  <option value="Value 1" selected="selected">1일</option>
+  	  <option value="Value 2">2일</option>
+	  <option value="Value 3">3일</option>
+	  <option value="Value 4">4일</option>
+	  <option value="Value 5">5일</option>
+	  <option value="Value 6">6일</option>
+	  <option value="Value 7">7일</option>
+	  <option value="Value 8">8일</option>
+	  <option value="Value 9">9일</option>
+	  <option value="Value 10">10일</option>
+	  <option value="Value 11">11일</option>
+	  <option value="Value 12">12일</option>
+	  <option value="Value 13">13일</option>
+	  <option value="Value 14">14일</option>
+	  <option value="Value 15">15일</option>
+	  <option value="Value 16">16일</option>
+	  <option value="Value 17">17일</option>
+	  <option value="Value 18">18일</option>
+	  <option value="Value 19">19일</option>
+	  <option value="Value 20">20일</option>
+	  <option value="Value 21">21일</option>
+	  <option value="Value 22">22일</option>
+	  <option value="Value 23">23일</option>
+	  <option value="Value 24">24일</option>
+	  <option value="Value 25">25일</option>
+	  <option value="Value 26">26일</option>
+	  <option value="Value 27">27일</option>
+	  <option value="Value 28">28일</option>
+	  <option value="Value 29">29일</option>
+	  <option value="Value 30">30일</option>
+	  <option value="Value 31">31일</option>
+	</select></li><br>
+	<li><label for="전화번호">전화번호</label>
+	<input type="text" name="전화번호" value="-는 생략하시오" /></li><br>
+       <li> <label for="사진">사진</label>
+	<input type="file" name="photo" /></li></ul>
+  </fieldset>
+	<br>
+     <a href='메인 화면.html'><input type="button" value="가입 완료" /></a>
+     <input type="reset" name="resetBtn" value="되돌리기" />
+</form>
+
+</body>
+</html>

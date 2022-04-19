@@ -1,0 +1,97 @@
+<!DOCTYPE html> <!--html comment: now this page will be written by html5 -->
+<html lang="en"> <!--html comment: html starting point, main language: english-->
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Optimization page</title> 
+  <link rel="stylesheet" href="style.css"> <!--link css-->
+</head>
+<body>
+  <background-image></background-image>
+  <div>
+    <header> <!--just for semantic, same function with div tag-->
+      <h1><span style="color: red;">Optimization</span> page</h1>
+      <input type="button" id="white" value="theme1" onclick="
+      document.querySelector('body').style.color='white';">
+      <input type="button" id="yellow" value="theme2" onclick="
+      document.querySelector('body').style.color='yellow';"><br><br>
+      <audio src="./BTS (방탄소년단) - Butter (Pendona.com).mp3" controls="controls" autoplay = "autoplay"></audio>
+    </header> 
+
+    <section>
+      <article class="university"> <!--가 항목들 반응형으로 처리. div 태그로 색깔 다르게 넣어서-->
+        <b>University</b>
+        <ul>
+          <li><a href="https://www.hufs.ac.kr/index.html" target="_blank">Hufs notice</a></li>
+          <li><a href="https://wis.hufs.ac.kr/src08/jsp/main.jsp?" target="_blank">Hufs info system</a></li>
+          <li><a href="https://eclass.hufs.ac.kr/ilos/main/main_form.acl" target="_blank">Hufs eclass</a></li>
+          <li><a href="https://soft.hufs.ac.kr/" target="_blank">Hufs AI</a></li>
+          <li><a href="https://hufsability.hufs.ac.kr/common/user/login.do?rtnUrl=21306aa07dd2f16c34d6c553b2e842ba014b25b816e5523c22ff3f6c59ab3da5" target="_blank">Hufsability</a></li>
+        </ul>
+      </article>
+
+      <article class="develop">
+        <strong>Development</strong>
+        <ul type="square">
+          <li><a href="https://developer.mozilla.org/ko/docs/Learn" target="_blank">MDN documents</a></li>
+          <li><a href="https://www.w3schools.com/" target="_blank">W3Schools documents</a></li>
+          <li><a href="https://docs.djangoproject.com/ko/4.0/" target="_blank">Django offical documents</a></li>
+        </ul>
+        <p><a href="/Why.html" style="color: blue;">Why I made this Web page?<sub>Introduction</sub></a><br></p>
+        <form target="_top">
+          <p>
+            <textarea name="memo" cols="40" rows="4">Freely comment your opinion</textarea>
+          </p>
+          <input type="submit" value="Send Form">
+          <input type="reset" value="Clear Form"> 
+        </form>
+      </article><br>
+
+      <article class="excercise">
+        <b>Excercise</b><br>
+        <iframe width="360px" height="460px" src="https://www.youtube.com/embed/9K81DQFutm8?list=PLa9ilbFw6_Z3LSqHzVrZi0v6u2pfpMHoe" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <iframe width="360px" height="460px" src="https://www.youtube.com/embed/XIxSN7OewtA?list=PLa9ilbFw6_Z3LSqHzVrZi0v6u2pfpMHoe" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </article>
+
+      <article class="etc">
+        <b>etc</b>
+        <div class="book-background">
+          <h2>Today's book</h2>
+          <a href="https://www.kyobobook.co.kr/bestSellerNew/bestseller.laf?orderClick=D0a" target="_blank"><button class="btn">more books!</button></a>
+          <table class="book-table"> <!--table은 행(가로줄)먼저 그리고 열(세로줄) 그리기-->
+            <thead>
+              <tr>
+                <td></td>
+                <th>Book's name</th>
+                <th>Author</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><a href="http://www.kyobobook.co.kr/product/detailViewKor.laf?ejkGb=KOR&mallGb=KOR&barcode=9791163032106&orderClick=LAG&Kc="><img src="/점프투장고.jpg" alt="book img"></a></td>
+                <th>Do it! 점프 투 장고</th>
+                <th>이지스 퍼블리싱</th>
+              </tr>
+              <tr>
+                <td style="border-bottom: none;"><a href="http://www.kyobobook.co.kr/product/detailViewKor.laf?ejkGb=KOR&mallGb=KOR&barcode=9791163032212&orderClick=LAG&Kc="><img src="/웹 표준의 정석.jpg" alt="book img"></a></td>
+                <th style="border-bottom: none;">Do it! HTML+CSS+자바스크립트 웹 표준의 정석</th>
+                <th style="border-bottom: none;">이지스 퍼블리싱</th>
+              </tr>
+            </tbody>   
+          </table>
+        </div>
+      </article> 
+    </section>
+
+    <footer>
+      <p>
+        &copy;CopyRight: 3/26 MY First Web Page! Made by 이준호<br>
+        &quot;I searched more tags, css information from W3Schools, youtube 생활코딩&quot;
+      </p>
+      <a href="mailto:929sa@naver.com?subject=I found your webpage's error!" style="font-size: 30px;"><em style="display: block;">If you find error, let me know here ~~(by e-mail only)</em></a>
+    </footer>
+    
+  </div>
+</body>
+</html>

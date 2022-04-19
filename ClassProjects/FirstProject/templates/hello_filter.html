@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Hello World "Filter"</title>
+</head>
+<body>
+<h1> Filter example {{ name | lower}} </h1>
+
+{% for i in weekday %}
+    {{ i | first | upper }}
+{% endfor %}
+
+<br/>
+
+{{ weekday | first | upper }}
+
+<br/>
+
+{{ weekday }}
+
+<br/>
+
+It is {% now "jS F Y H:i" %}
+</body>
+</html>
