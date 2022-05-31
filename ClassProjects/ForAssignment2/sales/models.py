@@ -7,10 +7,11 @@ class Sales(models.Model):
     city = models.CharField(max_length=50)
     country = models.CharField(max_length=50)
     product = models.CharField(max_length=50)
-    categories = models.CharField(max_length=50)
+    categories = models.CharField(max_length=50, default="")
     sales = models.FloatField(default=0)
     quantity = models.PositiveIntegerField(default=0)
-    order_priority = models.CharField(max_length=10)
+    order_priority = models.CharField(max_length=10, default="")
 
     def __str__(self):
         return self.sales
+

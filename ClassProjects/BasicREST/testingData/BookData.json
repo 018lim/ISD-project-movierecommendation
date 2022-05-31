@@ -1,0 +1,31 @@
+{
+  "Book": [
+    {
+      "Title": "Python",
+      "Authors": [
+        "John",
+        "Bob"
+      ],
+      "Date": "2013",
+      "Publisher": "Springer"
+    },
+    {
+      "Title": "Information System",
+      "Authors": [
+        "Andrew",
+        "Martin"
+      ],
+      "Date": "2014",
+      "Publisher": "Elsevier"
+    },
+    {
+      "Title": "Database",
+      "Authors": [
+        "Edward",
+        "David"
+      ],
+      "Date": "2016",
+      "Publisher": "Wiley"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+<html>
+<body>
+<h1><center>Snacks List</center></h1>
+<div class="container">
+
+<table class="table table-striped">
+  <tr>
+     <th>ID </th>
+     <th>Snack Name</th>
+     <th>Snack Brand</th>
+     <th>Producer</th>
+     <th>Snack Price</th>
+      <th>Stock Unit</th>
+      <th>Qty</th>
+      <th>Status</th>
+      <th>Update</th>
+      <th>Delete</th>
+  </tr>
+
+  {% for snack in snacks%}
+      <tr>
+    <td> {{ snack.id }} </td>
+      <td> {{ snack.snack_name }} </td>
+      <td> {{ snack.snack_brand }} </td>
+      <td> {{ snack.snack_producer }} </td>
+      <td> {{ snack.snack_price }} </td>
+      <td> {{ snack.snack_stock_unit }} </td>
+      <td>{{ snack.quantity }}</td>
+      <td> {% if snack.quantity <= 1 %}
+            <span style="color:red">Reorder</span>
+            {% else %}
+            Available
+            {% endif %}
+      </td>
+      <td> <a class="btn btn-info" href ="{%url 'update_snack' snack.id %}" >Update  </a> </td>
+      <td> <a class="btn btn-danger" href ="{%url 'delete_snack' snack.id %}" >Delete  </a> </td>
+    </tr>
+  {%endfor%}
+</table>
+
+<a class="btn btn-info" href = "{%url 'add_snack' %}"> New Product </a>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+</div>
+</body>
+</html>

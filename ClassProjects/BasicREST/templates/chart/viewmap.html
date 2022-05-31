@@ -1,0 +1,38 @@
+<html>
+   <head>
+      <title>Google Charts Tutorial</title>
+      <script type = "text/javascript" src = "https://www.gstatic.com/charts/loader.js">
+      </script>
+      <script type = "text/javascript" src = "https://www.google.com/jsapi">
+      </script>
+      <script type = "text/javascript">
+         google.charts.load('current', {packages: ['map']});
+      </script>
+   </head>
+
+   <body>
+      <div id = "container" style = "width: 550px; height: 400px; margin: 0 auto">
+      </div>
+      <script language = "JavaScript">
+         function drawChart() {
+            // Define the chart to be drawn.
+            var data = google.visualization.arrayToDataTable([
+               ['Lat', 'Long', 'Name'],
+               [37.333818, 127.2661388, 'Dormitory'],
+               [37.3383892, 127.2672987, 'University'],
+               [37.3357813, 127.2485419, 'Shopping'],
+               [37.335682, 127.2487872, 'Library']
+            ]);
+
+            // Set chart options
+            var options = {showTip: true};
+
+            // Instantiate and draw the chart.
+            var chart = new google.visualization.Map(document.getElementById
+            ('container'));
+            chart.draw(data, options);
+         }
+         google.charts.setOnLoadCallback(drawChart);
+      </script>
+   </body>
+</html>

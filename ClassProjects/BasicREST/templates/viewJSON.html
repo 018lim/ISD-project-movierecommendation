@@ -1,0 +1,55 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
+<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+</head>
+<body>
+<table id="example" class="display">
+<thead>
+    <tr>
+        <th>ID</th>
+        <th>Title</th>
+        <th>Language</th>
+        <th>Date</th>
+    </tr>
+<thead>
+</table>
+
+
+<script >
+{#$(document).ready(function() {#}
+{#$('#example').DataTable( {#}
+{#        ajax:  {#}
+{#          url: 'http://127.0.0.1:8000/api/jsonview',#}
+{#          dataSrc: 'Book'#}
+{#       },#}
+{#        columns: [#}
+{#        { data: "Title" },#}
+{#        { data: "Date" },#}
+{#        { data: "Publisher" }]#}
+{##}
+{#        } );#}
+{##}
+{# });#}
+{#</script>#}
+
+    $(document).ready(function() {
+$('#example').DataTable( {
+        ajax:  {
+          url: 'https://showtimes.everyday.in.th/api/v2/movie/',
+          dataSrc: 'results'
+       },
+        columns: [
+        { data: "id" },
+        { data: "title" },
+        { data: "language" },
+        { data: "release_date" }]
+
+        } );
+ });
+</script>
+
+
+</body>
+</html>
