@@ -24,7 +24,7 @@ class MovieInfo(models.Model):
     director = models.CharField(max_length=100)
     cast = models.CharField(max_length=200)
 
-class MovieRating(models.Model):
+class Rating(models.Model):
         score = models.FloatField()
         movie_id = models.ForeignKey(MovieInfo, on_delete=models.CASCADE)
         user_id = models.ForeignKey(UserInfo, on_delete=models.CASCADE)
