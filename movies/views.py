@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .movieform import MovieForm, RatingForm
-from .models import MovieInfo, MovieRating
+from .models import MovieInfo, MovieRating, Genre
 from django.views.decorators.http import require_POST
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
@@ -155,3 +155,28 @@ def recommend(request):
 
 def start(request):
     return render(request, 'movies/start.html')
+
+#to import info from API
+import urllib.request, json
+
+def list_genres(request):
+    with urllib.request.urlopen(
+            "https://api.themoviedb.org/3/genre/movie/list?api_key=459cfe259d40ef74b24fa3f9a19c6f3a&language=en-US") as url:
+        data = json.loads(url.read().decode())
+
+    genres = Genre.objects.all()
+
+    print(genres[0])
+
+    for i in data["genres"]:
+        if i['name'] in genres:
+            print('sí hay')
+        else:
+            print(i['name'])
+
+    context = {
+        'genres': genres,
+        'DBgenres': data,
+    }
+
+    return render(request, 'viewFeed.html', context)
