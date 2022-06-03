@@ -1,8 +1,8 @@
 from rest_framework import serializers
-from .models import MovieRating
+from .models import Rating
 
 
 class RatingSerializer(serializers.ModelSerializer):
     class Meta:
-        model = MovieRating
+        model = Rating
         fields = ['id', 'score']

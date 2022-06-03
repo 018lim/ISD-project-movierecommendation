@@ -20,6 +20,6 @@ from movies import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.create, name = 'create'),
+    path('', views.py, name = 'index'),
 
 ]
