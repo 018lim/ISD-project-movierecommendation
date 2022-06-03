@@ -1,0 +1,25 @@
+<ul>
+{% if feeds %}
+    {% for entry in feeds.genres %}
+        <li>{{entry.name}}</li>
+
+    {% endfor %}
+{% endif %}
+
+{% if genres %}
+
+    {% for entry in genres %}
+        <li>{{entry.genre_name}}</li>
+    {% endfor %}
+
+    {% for entry in DBgenres.genres %}
+        <li>{{entry.name}}</li>
+    {% endfor %}
+
+{% endif %}
+
+{% for entry in DBgenres.genres %}
+    <li>{{entry.name}}</li>
+{% endfor %}
+
+</ul>

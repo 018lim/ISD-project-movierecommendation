@@ -4,7 +4,7 @@ from django.db import models
 # Create your models here.
 
 class UserInfo(models.Model):
-    user_index = models.IntegerField(unique=True)
+    #user_index = models.IntegerField(unique=True)
     userID = models.CharField(max_length=50)
     user_pass = models.CharField(max_length=50)
     user_name = models.CharField(max_length=100)
@@ -16,17 +16,17 @@ class UserInfo(models.Model):
 
 
 class Genre(models.Model):
-    genre_id = models.IntegerField(unique=True)
+    #genre_id = models.IntegerField(unique=True)
     genre_name = models.CharField(max_length=50)
 
 
 class MovieInfo(models.Model):
-    movie_id = models.IntegerField(unique=True)
+    #movie_id = models.IntegerField(unique=True)
     ne = models.IntegerField()
     total_score = models.FloatField()
     genre_id = models.ForeignKey(Genre, on_delete=models.CASCADE)
     movie_title = models.CharField(max_length=100)
-    poster = models.ImageField(upload_to='posters')
+    poster = models.URLField('URL', unique=True)
     director = models.CharField(max_length=100)
     cast = models.CharField(max_length=200)
 
