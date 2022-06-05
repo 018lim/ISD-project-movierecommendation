@@ -8,4 +8,5 @@ urlpatterns = [
     #path('', views.list_genres),
     path('upGenres/', views.list_genres),
     path('upMovies/', views.movies_list),
+    path('detail/<int:movie_id>', views.detail),
 ]

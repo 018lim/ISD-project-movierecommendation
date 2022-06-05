@@ -47,25 +47,30 @@ def get_item(dictionary, key):
 
 def detail(request, movie_id):
     movie = get_object_or_404(MovieInfo, pk=movie_id)
-    ratings = MovieRating.objects.filter(movie=movie)
-    rated = MovieRating.objects.get(score=-1)
+    ratings = MovieRating.objects.filter(movie_id=movie_id)
+    #rated = MovieRating.objects.get(score=-1)
 
     for rating in ratings:
         if request.user == rating.user:
             rated = rating
     rating_form = RatingForm()
 
-    sum = MovieRating.objects.filter(movie=movie).aggregate(Avg('score'))
+    print(ratings.values())
+
+    sum = MovieRating.objects.filter(movie_id=movie_id).aggregate(Avg('score'))
     if sum['score__avg']:
         avg_score = round(sum['score__avg'], 2)
     else:
         avg_score = 0
+
+    anScore=movie.total_score/movie.ne
     context = {
         'movie': movie,
         'rating_form': rating_form,
         'ratings': ratings,
         'avg_score': avg_score,
-        'rated': rated
+        'anScore': anScore,
+        #'rated': rated
     }
 
     return render(request, 'movies/detail.html', context)
