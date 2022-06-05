@@ -22,13 +22,14 @@ class Genre(models.Model):
 
 class MovieInfo(models.Model):
     #movie_id = models.IntegerField(unique=True)
-    ne = models.IntegerField()
-    total_score = models.FloatField()
+    ne = models.IntegerField(default=0)
+    total_score = models.FloatField(default=0)
     genre_id = models.ForeignKey(Genre, on_delete=models.CASCADE)
     movie_title = models.CharField(max_length=100)
     poster = models.URLField('URL', unique=True)
     director = models.CharField(max_length=100)
     cast = models.CharField(max_length=200)
+    idTMDB = models.IntegerField(default=0)
 
 
 class MovieRating(models.Model):

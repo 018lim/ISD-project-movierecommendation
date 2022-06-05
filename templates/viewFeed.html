@@ -1,10 +1,4 @@
 <ul>
-{% if feeds %}
-    {% for entry in feeds.genres %}
-        <li>{{entry.name}}</li>
-
-    {% endfor %}
-{% endif %}
 
 {% if genres %}
 
@@ -18,8 +12,12 @@
 
 {% endif %}
 
-{% for entry in DBgenres.genres %}
-    <li>{{entry.name}}</li>
-{% endfor %}
+{% if DBmovies %}
+
+    {% for entry in DBmovies %}
+        <li>{{entry.original_title}}</li>
+    {% endfor %}
+
+{% endif %}
 
 </ul>
