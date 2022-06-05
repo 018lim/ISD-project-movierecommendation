@@ -291,30 +291,7 @@
 
 
 
-        <div class="container">
-          <div class="row">
-            <div class="col">
-                 <img
-                     src="{% static 'img/Newest.png' %}"
-                     height="38rem"
-                     alt=""
-                     loading="lazy"
-                 />
-            </div>
-          </div>
-            <div class="row images">
-                {% for i in data %}
-                    <div class="col">
-                        <img
-                                class="ds"
-                            src="{{i.poster}}"
-                            alt=""
-                        />
-                         <div style="text-align: center">{{ i.movie_title }}</div>
-                    </div>
-                {% endfor %}
-            </div>
-        </div>
+
 
     </main>
     <!--Main layout-->
