@@ -165,18 +165,99 @@ def list_genres(request):
         data = json.loads(url.read().decode())
 
     genres = Genre.objects.all()
-
-    print(genres[0])
+    genresList = list(genres)
 
     for i in data["genres"]:
-        if i['name'] in genres:
-            print('sí hay')
+        save = 0
+        for j in genresList:
+            if j.genre_name == i['name']:
+                save = 1
+        if save == 1:
+            print("sista")
         else:
-            print(i['name'])
+            print("proceso para añadir dato")
+            new = Genre(genre_name=i['name'])
+            new.save()
 
     context = {
         'genres': genres,
         'DBgenres': data,
+    }
+
+    return render(request, 'viewFeed.html', context)
+
+def movies_list(request):
+    #change the number of the list
+
+    with urllib.request.urlopen(
+            "https://api.themoviedb.org/3/genre/movie/list?api_key=459cfe259d40ef74b24fa3f9a19c6f3a&language=en-US") as url:
+        genresDB = json.loads(url.read().decode())
+
+    genres = Genre.objects.all()
+    genresList = list(genres)
+
+    movies=MovieInfo.objects.all()
+    moviesList=list(movies)
+
+    for lists in [1,2,3,4,5,6,7]:
+        with urllib.request.urlopen(
+                "https://api.themoviedb.org/3/list/"+str(lists)+"?api_key=459cfe259d40ef74b24fa3f9a19c6f3a&language=en-US") as url:
+            data = json.loads(url.read().decode())
+
+        for i in data["items"]:
+            itExist=0
+
+            for j in moviesList:
+                if i["id"] == j.idTMDB:
+                    itExist=1
+
+            if itExist == 0:
+                for j in genresDB["genres"]:
+                    if i["genre_ids"][0] == j['id']:
+                        for k in genresList:
+                            if k.genre_name == j['name']: #if the genre exists in our database
+
+                                nE=i['vote_count']
+                                totalScore=i['vote_average']*nE
+                                idTMDBb=i["id"]
+                                movieTitle=i['original_title']
+
+                                with urllib.request.urlopen(
+                                        "https://api.themoviedb.org/3/movie/"+str(i['id'])+"/credits?api_key=459cfe259d40ef74b24fa3f9a19c6f3a&language=en-US") as url:
+                                    movieDetail = json.loads(url.read().decode())
+
+                                cast = ''
+                                num=0
+                                for r in movieDetail['cast']:
+                                    if r['known_for_department'] == "Acting":
+                                        if num == 0:
+                                            cast=cast+r['name']
+                                        else:
+                                            cast = cast + ',' + r['name']
+                                        num=num+1
+                                print(cast) #add cast
+
+                                direct=''
+                                num=0
+                                for r in movieDetail['crew']:
+                                    if r['job'] == "Director":
+                                        if num == 0:
+                                            direct=direct+r['name']
+                                        else:
+                                            direct = direct + ',' + r['name']
+                                        num=num+1
+                                print(direct)  # add director
+
+                                poster='https://image.tmdb.org/t/p/w500'+i['poster_path']
+
+                                new = MovieInfo(ne = nE, total_score=totalScore, movie_title=movieTitle, poster=poster, director=direct, cast=cast, genre_id_id=k.pk, idTMDB=idTMDBb)
+                                new.save()
+            else:
+                print("ya hay peli")
+                print(i["genre_ids"][0])
+
+    context = {
+        'DBmovies': data["items"],
     }
 
     return render(request, 'viewFeed.html', context)
