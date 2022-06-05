@@ -268,7 +268,19 @@ def movies_list(request):
     return render(request, 'viewFeed.html', context)
 
 def D1_page(request):
+
+    moviesInfo=MovieInfo.objects.all();
+    movies=list(moviesInfo)
+
+    moviesList=[]
+    for j in [2,3,4,5,6]:
+        moviesList.append(movies[j])
+
+
+
     context = {
-        'Data': 0,
+        'data': moviesList,
     }
     return render(request, 'movies/detail_D1.html', context)
+def D2_page(request):
+    return render(request, 'movies/D2.html', context)
