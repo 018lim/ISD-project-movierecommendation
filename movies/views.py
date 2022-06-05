@@ -266,3 +266,9 @@ def movies_list(request):
     }
 
     return render(request, 'viewFeed.html', context)
+
+def D1_page(request):
+    context = {
+        'Data': 0,
+    }
+    return render(request, 'movies/detail_D1.html', context)
