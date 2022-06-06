@@ -22,6 +22,18 @@ from django.contrib.auth import logout as auth_logout
 # Create your views here.
 
 
+
+
+
+
+
+
+
+
+
+
+
+
 def search(request):
     movie = MovieInfo.objects.all()
     # GET request의 인자중에 searchword값이 있으면 가져오고, 없으면 빈 문자열 넣기
