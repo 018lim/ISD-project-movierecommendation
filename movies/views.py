@@ -245,3 +245,9 @@ def byGenre(request, genre_id):
     genre = Genre.objects.get(id=genre_id).genre_name
 
     return render(request, 'movies/byGenre.html', {'movies':movieInfo,'genre':genre})
+
+from django.shortcuts import render
+
+def vizTest(request):
+    return render(request, 'movies/vizTest.html')
+

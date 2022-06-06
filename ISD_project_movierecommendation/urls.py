@@ -30,6 +30,9 @@ urlpatterns = [
     path('movieList/', views.moviesList, name="create"),
     #path('', views.list, name="list"),
 
+    path('vizTest/', views.vizTest, name = 'vizTest'),
+
+
     #path('<int:movie_id>/', views.detail, name="detail"),
 
 
