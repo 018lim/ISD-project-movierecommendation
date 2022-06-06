@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+    <form class="form-inline">
+        {% csrf_token %}
+        <div class="form-group">
+            <label>Title</label>
+            <input type="text" id="title" class="form-control" style="width:30%;" required="required"/>
+            <br>
+            <label>Content</label>
+            <input type="textarea" id="content" class="form-control" style="width:70%;" required="required"/>
+            <button type="button" id="create" class="btn btn-sm btn-primary">Create</button>
+        </div>
+    </form>
+    <br />
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <script type="text/javascript">
+        $('#create').on('click', function(){
+            $title = $('#title').val();
+            $content = $('#content').val();
+
+            if($title == "" || $content == ""){
+                alert("Please complete the required field");
+            }else{
+                $.ajax({
+                    url: 'create/',
+                    type: 'POST',
+                    data: {
+                        title: $title,
+                        content: $content,
+                        csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val()
+                    },
+                    success: function(){
+                        Read();
+                        $('#title').val('');
+                        $('#content').val('');
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
