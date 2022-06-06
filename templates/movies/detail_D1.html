@@ -146,7 +146,7 @@
 
                 {% for i in genres %}
                     <li class="list-group-item py-1  sideBarContentit">
-                        <a href="/Genre/{{ i.id }}" class="text-reset">{{ i.genre_name }}</a>
+                        <a href="/Genre/{{ i.id }}" class="text-reset">-{{ i.genre_name }}</a>
                     </li>
                 {% endfor %}
               <!--<li class="list-group-item py-1  sideBarContentit">
@@ -396,10 +396,9 @@
                         </tr>
                     </table>
                 </div>
-                <div style="text-align: center">{{ i.movie_title }}</div>
+                <div style="text-align: center"><a href="/D2/{{ i.id }}/">{{ i.movie_title }}</a</div>
           </div>
-
-            <div class="row">
+          <div class="row">
             <div class="col">
                  <img
                      src="{% static 'img/Popular.png' %}"
@@ -417,7 +416,7 @@
                             src="{{i.poster}}"
                             alt=""
                         />
-                         <div style="text-align: center"><a href="/D2/{{ i.id }}/">{{ i.movie_title }}</a></div>
+                         <div style="text-align: center">{{ i.movie_title }}</div>
                     </div>
                 {% endfor %}
             </div>
