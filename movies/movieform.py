@@ -11,15 +11,13 @@ class MovieForm(forms.ModelForm):
 
     movie_title = forms.CharField(max_length=100)
     #poster = forms.ImageField(upload_to='posters')
-    poster = forms.ImageField()
+    poster = forms.URLField()
     director = forms.CharField(max_length=100)
     cast = forms.CharField(max_length=200)
 
     class Meta:
-        field = ['movie_title','ne','total_score','genre_id','poster','director','cast']
-
-
-
+        model = MovieInfo
+        fields = ['movie_title','genre_id','poster','director','cast']
 
 
 

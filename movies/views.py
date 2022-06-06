@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .movieform import MovieForm, RatingForm
-from .models import MovieInfo, MovieRating, Genre
+from .models import MovieInfo, MovieRating, Genre, UserInfo, UserList
 from django.views.decorators.http import require_POST
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
@@ -35,6 +35,28 @@ def create(request):
 
     else:
         return redirect('movies:list')
+
+def moviesList(request):
+    genres = Genre.objects.all()
+    movies_form = MovieForm()
+    movies = MovieInfo.objects.all()
+
+    context={
+        'genres':genres,
+        'movies_form' : movies_form,
+        'moviesList':movies,
+    }
+
+
+    return render(request, 'movies/moviesList.html', context=context)
+
+
+def createF(request):
+    user = UserInfo(userID=request.POST['userID'], user_pass=request.POST['pass'], user_name=request.POST['name'], user_email=request.POST['email'], is_superuser=['superUser'])
+    user.save()
+    userList = UserList(pref_genre='', nonpref_genre='', movie_list='', user_index_id=user.pk)
+    userList.save()
+    return render(request, 'crud/create.html')
 
 
 @register.filter
@@ -283,5 +305,6 @@ def D1_page(request):
         'data': moviesList,
     }
     return render(request, 'movies/detail_D1.html', context)
+
 def D2_page(request):
     return render(request, 'movies/D2.html', context)
