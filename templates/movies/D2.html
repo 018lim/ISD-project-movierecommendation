@@ -288,8 +288,8 @@
     <main style="margin-top: 100px; margin-left: 60px;  margin-right: 60px;">
         <!-- Main Content -->
         {% load static %}
-        Title: {{movie.movie_title}}<br/>
-        Image: <img src="{{ movie.poster }}" width="200rem" /><br/>
+        <font size="5"><b>{{movie.movie_title}}</b></font><br/>
+        Image: <img src="{{ movie.poster }}" width="180rem" /><br/>
         Director: {{ movie.director }}<br/>
         Cast: {{ movie.cast }}<br/>
         Genre: {{ genre }}<br/>
