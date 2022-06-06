@@ -319,8 +319,6 @@ def D2_page(request, movie_id):
 
 def byGenre(request, genre_id):
     movieInfo = MovieInfo.objects.filter(genre_id=genre_id)
-    genre = movieInfo.genre_id.genre_name
-    score=movieInfo.total_score/movieInfo.ne
+    genre = Genre.objects.get(id=genre_id).genre_name
 
-
-    return render(request, 'movies/D2.html', {'movie':movieInfo,'genre':genre,'score':score})
+    return render(request, 'movies/byGenre.html', {'movies':movieInfo,'genre':genre})
