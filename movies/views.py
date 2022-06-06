@@ -22,7 +22,31 @@ from django.contrib.auth import logout as auth_logout
 # Create your views here.
 
 
-#
+def search(request):
+    movie = MovieInfo.objects.all()
+    # GET request의 인자중에 searchword값이 있으면 가져오고, 없으면 빈 문자열 넣기
+    if request.method == "GET":
+        searchword = request.GET.get('searchword', '')
+        resultMovie = []
+
+        if searchword:  # searchword가 있다면
+            searchMovie = movie.filter(title__contains=searchword)  # 제목에 searchword가 포함된 레코드만 필터링
+            if searchMovie:
+                # 영화 여러개 저장위해 데이터의 개수
+                movie_count = searchMovie.count()
+                for c in range(movie_count):
+                    # 데이터들 resultMovie리스트에 저장
+                    # 원본 주석처리
+                    # resultMovie.append({searchMovie[c].title:searchMovie[c].id})
+                    resultMovie.append({'title': searchMovie[c].title, 'id': searchMovie[c].id})
+                    # 디테일 페이지 이동위해 id값도 넘겨준다
+                return render(request, 'movies/searchresult.html',
+                              {'movie': movie, 'searchMovie': searchMovie, 'resultMovie': resultMovie})
+            else:
+                # 아무것도 입력하지 않는다면,
+                return render(request, 'movies/searchresult.html', {'resultMovie': resultMovie})
+
+        return render(request, 'movies/search.html')
 
 def moviesList(request):
     genres = Genre.objects.all()
@@ -55,108 +79,7 @@ def get_item(dictionary, key):
 
 
 
-def detail(request, movie_id):
-    movie = get_object_or_404(MovieInfo, pk=movie_id)
-    ratings = MovieRating.objects.filter(movie_id=movie_id)
-    #rated = MovieRating.objects.get(score=-1)
 
-    for rating in ratings:
-        if request.user == rating.user:
-            rated = rating
-    rating_form = RatingForm()
-
-    print(ratings.values())
-
-    sum = MovieRating.objects.filter(movie_id=movie_id).aggregate(Avg('score'))
-    if sum['score__avg']:
-        avg_score = round(sum['score__avg'], 2)
-    else:
-        avg_score = 0
-
-    anScore=movie.total_score/movie.ne
-    context = {
-        'movie': movie,
-        'rating_form': rating_form,
-        'ratings': ratings,
-        'avg_score': avg_score,
-        'anScore': anScore,
-        #'rated': rated
-    }
-
-    return render(request, 'movies/detail.html', context)
-
-
-def update(request, movie_id):
-    movie = get_object_or_404(MovieInfo, pk=movie_id)
-
-    if not request.user.is_superuser:
-        return redirect('movies:list')
-
-    if request.method == "POST":
-        form = MovieForm(request.POST, instance=movie)
-        if form.is_valid:
-            form.save()
-            return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
-    else:
-        form = MovieForm(instance=movie)
-        return render(request, 'movies/update.html', {'form': form})
-
-
-@require_POST
-def delete(request, movie_id):
-    movie = get_object_or_404(MovieInfo, pk=movie_id)
-    if request.user.is_superuser:
-        movie.delete()
-    return redirect('movies:list')
-
-
-
-@login_required
-def create_rating(request, movie_id):
-    movie = get_object_or_404(MovieInfo, pk=movie_id)
-    form = RatingForm(request.POST)
-    if form.is_valid():
-        rating = form.save(commit=False)
-
-        rating.user = request.user
-        rating.movie = movie
-        rating.save()
-
-    return redirect('movies:detail', movie.id)
-
-
-@api_view(['POST', 'GET'])
-def starcreate_rating(request, movie_id):
-    rating = request.data
-    serializer = RatingSerializer(data=rating)
-    if serializer.is_valid(raise_exception=True):
-        serializer.save()
-    return Response(serializer.data)
-
-
-@require_POST
-def delete_rating(request, movie_id, rating_id):
-    rating = MovieRating.objects.get(pk=rating_id)
-    if rating.user == request.user:
-        rating.delete()
-    return redirect('movies:detail', movie_id)
-
-
-@login_required
-def update_rating(request, movie_id, rating_id):
-    rating = MovieRating.objects.get(pk=rating_id)
-    if rating.user == request.user:
-        if request.method == "POST":
-            form = RatingForm(request.POST, instance=rating)
-            if form.is_valid():
-                form.save()
-                return redirect('movies:detail', movie_id)
-        else:
-            form = RatingForm(instance=rating)
-        return render(request, 'movies/update.html', {'form': form})
-
-    else:
-        return redirect('movies:list')
 
 
 

@@ -14,7 +14,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 
 from movies import views
 
@@ -25,12 +25,12 @@ urlpatterns = [
     path('D1/', views.D1_page,name="D1"),
     path('D2/<int:movie_id>/', views.D2_page,name="D2"),
     path('Genre/<int:genre_id>/', views.byGenre),
-
-
+    path('search/', views.search, name="search"),
+    path('movies/', include('movies.urls', namespace="namespace")),
     path('movieList/', views.moviesList, name="create"),
     #path('', views.list, name="list"),
 
-    path('<int:movie_id>/', views.detail, name="detail"),
+    #path('<int:movie_id>/', views.detail, name="detail"),
 
 
 
