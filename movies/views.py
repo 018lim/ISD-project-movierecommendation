@@ -13,28 +13,16 @@ from django.db.models import Avg
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from .serializer import RatingSerializer
+from django.shortcuts import render, redirect
+from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
+from django.contrib.auth import login as auth_login
+from django.contrib.auth import logout as auth_logout
 
+
+# Create your views here.
 
 
 #
-def create(request):
-    # superuser?
-    if request.user.is_superuser:
-        if request.method == "POST":
-            form = MovieForm(request, request.FILES)
-            if form.is_valid():
-                movie = form.save()
-                # if superuser go to movie-detail
-                return render(request, 'movies/moviedetail.html', movie)
-            else:
-                return render(request, 'error.html')
-
-        else:
-            form = MovieForm()
-        return render(request, 'movies/create.html', {'form': form})
-
-    else:
-        return redirect('movies:list')
 
 def moviesList(request):
     genres = Genre.objects.all()
