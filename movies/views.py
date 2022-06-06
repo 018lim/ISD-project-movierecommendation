@@ -3,10 +3,12 @@ from .movieform import MovieForm, RatingForm
 from .models import MovieInfo, MovieRating, Genre, UserInfo, UserList
 from django.views.decorators.http import require_POST
 from django.contrib.auth.decorators import login_required
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, JsonResponse, HttpResponse
 from django.contrib.auth import get_user_model, update_session_auth_hash
 
 from django.template.defaulttags import register
+from django.template import loader
+
 
 from django.db.models import Avg
 
@@ -238,17 +240,65 @@ def D2_page(request, movie_id):
     genre = movieInfo.genre_id.genre_name
     score=movieInfo.total_score/movieInfo.ne
 
+    genres = Genre.objects.all()
 
-    return render(request, 'movies/D2.html', {'movie':movieInfo,'genre':genre,'score':score})
+    context = {
+        'movie':movieInfo,
+        'genre': genre,
+        'score': score,
+        'genres': genres,
+    }
+
+    return render(request, 'movies/D2.html', context)
 
 def byGenre(request, genre_id):
     movieInfo = MovieInfo.objects.filter(genre_id=genre_id)
     genre = Genre.objects.get(id=genre_id).genre_name
 
-    return render(request, 'movies/byGenre.html', {'movies':movieInfo,'genre':genre})
+    genres = Genre.objects.all()
+
+    context = {
+        'movies':movieInfo,
+        'genre': genre,
+        'genres': genres,
+    }
+
+    return render(request, 'movies/byGenre.html', context)
 
 from django.shortcuts import render
 
 def vizTest(request):
-    return render(request, 'movies/vizTest.html')
+    temp = loader.get_template('movies/comparison.html')
+    moviesInfo = MovieInfo.objects.all()
+    movies = list(moviesInfo)
+
+    genres = Genre.objects.all()
+
+    moviesList = []
+    for j in [2, 3, 4, 5, 6]:
+        moviesList.append(movies[j])
+
+    context = {
+        'data': moviesList,
+        'genres': genres,
+    }
+    return HttpResponse(temp.render(context, request))
+
+def searchMovieViz(request):
+
+    movie = MovieInfo.objects.get(movie_title=request.POST['movie'])
+    title=movie.movie_title
+    score=movie.total_score/movie.ne
+    return JsonResponse({"title": title,"score": score}, status=200)
+
+def searchMovieTitles(request):
+
+    movie = list(MovieInfo.objects.filter(movie_title__startswith=request.POST['movie']).values_list('movie_title', flat=True))
+
+    return JsonResponse({"titles": movie}, status=200)
+
+def searchMovieMain(request):
+
+    movie = MovieInfo.objects.filter(movie_title=request.POST['movie'])[:1].get().id
+    return JsonResponse({"id": movie}, status=200)
 

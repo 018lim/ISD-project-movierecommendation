@@ -31,6 +31,9 @@ urlpatterns = [
     #path('', views.list, name="list"),
 
     path('vizTest/', views.vizTest, name = 'vizTest'),
+    path('searchMovieViz/', views.searchMovieViz, name = 'vizTest'),
+    path('searchMovieTitles/', views.searchMovieTitles, name = 'vizTestTitles'),
+    path('searchMovieMain/', views.searchMovieMain, name = 'vizTestMain'),
 
 
     #path('<int:movie_id>/', views.detail, name="detail"),

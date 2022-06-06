@@ -116,6 +116,11 @@
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
 
+    <script type = "text/javascript" src = "https://www.gstatic.com/charts/loader.js">
+      </script>
+      <script type = "text/javascript">
+         google.charts.load('current', {packages: ['corechart']});
+      </script>
 
 </head>
     <body>
@@ -148,33 +153,9 @@
 
                 {% for i in genres %}
                     <li class="list-group-item py-1  sideBarContentit">
-                        <a href="/Genre/{{ i.id }}" class="text-reset">{{ i.genre_name }}</a>
+                        <a href="/Genre/{{ i.id }}" class="text-reset">-{{ i.genre_name }}</a>
                     </li>
                 {% endfor %}
-              <!--<li class="list-group-item py-1  sideBarContentit">
-                <a href="" class="text-reset">-Action</a>
-              </li>
-              <li class="list-group-item py-1  sideBarContentit">
-                <a href="" class="text-reset">-Comedy</a>
-              </li>
-              <li class="list-group-item py-1  sideBarContentit">
-                <a href="" class="text-reset">-Drama</a>
-              </li>
-              <li class="list-group-item py-1  sideBarContentit">
-                <a href="" class="text-reset">-Fantasy</a>
-              </li>
-              <li class="list-group-item py-1  sideBarContentit">
-                <a href="" class="text-reset">-Horror</a>
-              </li>
-              <li class="list-group-item py-1  sideBarContentit">
-                <a href="" class="text-reset">-Romance</a>
-              </li>
-              <li class="list-group-item py-1  sideBarContentit">
-                <a href="" class="text-reset">-Musical</a>
-              </li>
-              <li class="list-group-item py-1  sideBarContentit">
-                <a href="" class="text-reset">-Suspense</a>
-              </li>-->
             </ul>
             <!-- Collapse 1 -->
 
@@ -223,10 +204,11 @@
 
             <img
                  src="{% static 'img/movie.png' %}"
-                 height="90rem"
+                 height="140rem"
+                 width="220rem"
                  alt=""
                  loading="lazy"
-                 />
+            />
           </a>
           <!-- Search form -->
           <form class="d-none d-md-flex input-group w-auto my-auto" id="search">
@@ -245,7 +227,15 @@
             <!-- Icon -->
 
             <!-- Icon -->
-
+            <a class="nav-link hidden-arrow d-flex align-items-center"
+                 href="/vizTest/"
+                 id="navbarGoCompare"
+                 role="button"
+                 data-mdb-toggle="dropdown"
+                 aria-expanded="false"
+                 >
+                Compare Tool
+              </a>
 
             <!-- Avatar -->
             <li class="nav-item dropdown">
@@ -283,30 +273,18 @@
     <!--Main Navigation-->
 
     <!--Main layout-->
-    <main style="margin-top: 100px; margin-left: 60px;  margin-right: 60px;">
-        <!-- Main Content -->
-        <h1 class="header h3"> Genre: {{ genre }}</h1>
-              {% load static %}
-        <div class="container">
-            <div class="row">
-                {% for g in movies %}
+    <main style="margin-top: 150px; margin-left: 60px;  margin-right: 60px;">
 
 
-                  <div class="col-2">
-
-                      <div><img src="{{ g.poster }}" width="100%"/></div>
-                      <div style="text-align: center"><a href="/D2/{{ g.id }}">{{ g.movie_title }}</a></div>
-                  </div>
+        {% include 'movies/vizTest.html' %}
 
 
-                {% endfor %}
-            </div>
-        </div>
 
     </main>
     <!--Main layout-->
         {% load static %}
-        <script type="text/javascript" src="{% static 'scripts/movieSearch.js' %}"></script>
-        <script type="text/javascript" src="{% static 'scripts/mainMovieSearchD2.js' %}"></script>
+        <script type="text/javascript" src="{% static 'scripts/mainMovieSearch.js' %}"></script>
+        <script type="text/javascript" src="{% static 'scripts/mainMovieSearch.js' %}"></script>
+
 </body>
 </html>
