@@ -292,7 +292,7 @@ def movies_list(request):
 
 def D1_page(request):
 
-    moviesInfo=MovieInfo.objects.all();
+    moviesInfo=MovieInfo.objects.all()
     movies=list(moviesInfo)
 
     moviesList=[]
@@ -306,5 +306,10 @@ def D1_page(request):
     }
     return render(request, 'movies/detail_D1.html', context)
 
-def D2_page(request):
-    return render(request, 'movies/D2.html', context)
+def D2_page(request, movie_id):
+    movieInfo = MovieInfo.objects.get(id=movie_id)
+    genre = movieInfo.genre_id.genre_name
+    score=movieInfo.total_score/movieInfo.ne
+
+
+    return render(request, 'movies/D2.html', {'movie':movieInfo,'genre':genre,'score':score})

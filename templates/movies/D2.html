@@ -287,11 +287,13 @@
     <!--Main layout-->
     <main style="margin-top: 100px; margin-left: 60px;  margin-right: 60px;">
         <!-- Main Content -->
-              {% load static %}
-
-
-
-
+        {% load static %}
+        Title: {{movie.movie_title}}<br/>
+        Image: <img src="{{ movie.poster }}" width="200rem" /><br/>
+        Director: {{ movie.director }}<br/>
+        Cast: {{ movie.cast }}<br/>
+        Genre: {{ genre }}<br/>
+        Score: {{ score }}<br/>
 
     </main>
     <!--Main layout-->

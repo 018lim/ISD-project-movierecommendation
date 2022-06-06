@@ -23,6 +23,7 @@ urlpatterns = [
     path('upGenres/', views.list_genres),
     path('upMovies/', views.movies_list),
     path('D1/', views.D1_page,name="D1"),
+    path('D2/<int:movie_id>/', views.D2_page,name="D2"),
 
     path('create/', views.create, name="create"),
 
