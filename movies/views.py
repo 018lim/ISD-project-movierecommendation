@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .movieform import MovieForm, RatingForm
-from .models import MovieInfo, MovieRating, Genre
+from .models import MovieInfo, MovieRating, Genre, UserInfo, UserList
 from django.views.decorators.http import require_POST
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
@@ -35,6 +35,28 @@ def create(request):
 
     else:
         return redirect('movies:list')
+
+def moviesList(request):
+    genres = Genre.objects.all()
+    movies_form = MovieForm()
+    movies = MovieInfo.objects.all()
+
+    context={
+        'genres':genres,
+        'movies_form' : movies_form,
+        'moviesList':movies,
+    }
+
+
+    return render(request, 'movies/moviesList.html', context=context)
+
+
+def createF(request):
+    user = UserInfo(userID=request.POST['userID'], user_pass=request.POST['pass'], user_name=request.POST['name'], user_email=request.POST['email'], is_superuser=['superUser'])
+    user.save()
+    userList = UserList(pref_genre='', nonpref_genre='', movie_list='', user_index_id=user.pk)
+    userList.save()
+    return render(request, 'crud/create.html')
 
 
 @register.filter
@@ -270,8 +292,10 @@ def movies_list(request):
 
 def D1_page(request):
 
-    moviesInfo=MovieInfo.objects.all();
+    moviesInfo=MovieInfo.objects.all()
     movies=list(moviesInfo)
+
+    genres=Genre.objects.all()
 
     moviesList=[]
     for j in [2,3,4,5,6]:
@@ -281,7 +305,20 @@ def D1_page(request):
 
     context = {
         'data': moviesList,
+        'genres': genres,
     }
     return render(request, 'movies/detail_D1.html', context)
-def D2_page(request):
-    return render(request, 'movies/D2.html', context)
+
+def D2_page(request, movie_id):
+    movieInfo = MovieInfo.objects.get(id=movie_id)
+    genre = movieInfo.genre_id.genre_name
+    score=movieInfo.total_score/movieInfo.ne
+
+
+    return render(request, 'movies/D2.html', {'movie':movieInfo,'genre':genre,'score':score})
+
+def byGenre(request, genre_id):
+    movieInfo = MovieInfo.objects.filter(genre_id=genre_id)
+    genre = Genre.objects.get(id=genre_id).genre_name
+
+    return render(request, 'movies/byGenre.html', {'movies':movieInfo,'genre':genre})

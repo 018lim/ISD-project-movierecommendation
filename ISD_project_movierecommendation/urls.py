@@ -23,8 +23,12 @@ urlpatterns = [
     path('upGenres/', views.list_genres),
     path('upMovies/', views.movies_list),
     path('D1/', views.D1_page,name="D1"),
+    path('D2/<int:movie_id>/', views.D2_page,name="D2"),
+    path('Genre/<int:genre_id>/', views.byGenre),
 
     path('create/', views.create, name="create"),
+
+    path('movieList/', views.moviesList, name="create"),
     #path('', views.list, name="list"),
 
     path('<int:movie_id>/', views.detail, name="detail"),
@@ -34,6 +38,8 @@ urlpatterns = [
     path('<int:movie_id>/rating/create/', views.create_rating, name='create_rating'),
     path('<int:movie_id>/rating/<int:rating_id>/delete', views.delete_rating, name="delete_rating"),
     path('<int:movie_id>/rating/<int:rating_id>/update', views.update_rating, name="update_rating"),
+
+    path('createUser/', views.create, name=""),
     #path('', views.py, name = 'index'),
 
 ]
