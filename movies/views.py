@@ -107,6 +107,7 @@ def create_rating(request, movie_id):
     form = RatingForm(request.POST)
     if form.is_valid():
         rating = form.save(commit=False)
+
         rating.user = request.user
         rating.movie = movie
         rating.save()

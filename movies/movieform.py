@@ -7,7 +7,6 @@ from .models import MovieInfo, MovieRating, Genre
 class MovieForm(forms.ModelForm):
     ne = forms.IntegerField()
     total_score = forms.FloatField()
-    #genre_id = forms.ForeignKey(Genre, on_delete=models.CASCADE)
     genre_id = forms.ModelChoiceField(queryset=Genre.objects.all())
 
     movie_title = forms.CharField(max_length=100)
