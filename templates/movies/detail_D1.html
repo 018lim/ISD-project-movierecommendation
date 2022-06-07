@@ -57,9 +57,13 @@
         }
 
         .position-sticky{
-            margin-top: 2rem;
+            margin-top: -10px;
+            margin-left: -20px;
         }
-
+        .movie-picture{
+            margin-top: -40px;
+            margin-left: -55px;
+        }
         .images .col img{
             display: block;
             margin-left: auto;
@@ -108,6 +112,11 @@
           background-color: DodgerBlue !important;
           color: #ffffff;
         }
+
+        #thing{
+            margin-top:-5%;
+        }
+
     </style>
 
     <script src="https://code.jquery.com/jquery-latest.min.js"></script>
@@ -200,14 +209,15 @@
           <a class="navbar-brand" href="#">
               {% load static %}
 
-            <img
+            <img class="movie-picture"
                  src="{% static 'img/movie.png' %}"
-                 height="90rem"
+                 height="165rem"
                  alt=""
                  loading="lazy"
 
             />
           </a>
+
           <!-- Search form -->
           <form class="d-none d-md-flex input-group w-auto my-auto" id="search">
             {% csrf_token %}
@@ -220,7 +230,7 @@
           </form>
 
           <!-- Right links -->
-          <ul class="navbar-nav ms-auto d-flex flex-row">
+          <ul class="navbar-nav ms-auto d-flex flex-row" id="thing">
             <!-- Notification dropdown -->
             <!-- Icon -->
 

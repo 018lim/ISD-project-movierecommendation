@@ -54,9 +54,13 @@
         }
 
         .position-sticky{
-            margin-top: 2rem;
+            margin-top: -10px;
+            margin-left: -20px;
         }
-
+        .movie-picture{
+                    margin-top: -40px;
+                    margin-left: -55px;
+        }
         .images .col img{
             display: block;
             margin-left: auto;
@@ -105,6 +109,9 @@
           background-color: DodgerBlue !important;
           color: #ffffff;
         }
+        #thing{
+            margin-top:-5%;
+        }
     </style>
 
     <script src="https://code.jquery.com/jquery-latest.min.js"></script>
@@ -147,7 +154,7 @@
                 >
                 {% for i in genres %}
                     <li class="list-group-item py-1  sideBarContentit">
-                        <a href="/Genre/{{ i.id }}" class="text-reset">{{ i.genre_name }}</a>
+                        <a href="/Genre/{{ i.id }}" class="text-reset">-{{ i.genre_name }}</a>
                     </li>
                 {% endfor %}
             </ul>
@@ -196,9 +203,9 @@
           <a class="navbar-brand" href="http://127.0.0.1:8000/D1/">
               {% load static %}
 
-            <img
+            <img class="movie-picture"
                  src="{% static 'img/movie.png' %}"
-                 height="90rem"
+                 height="165rem"
                  alt=""
                  loading="lazy"
                  />
@@ -215,7 +222,7 @@
           </form>
 
           <!-- Right links -->
-          <ul class="navbar-nav ms-auto d-flex flex-row">
+          <ul class="navbar-nav ms-auto d-flex flex-row" id="thing">
             <!-- Notification dropdown -->
             <!-- Icon -->
 
