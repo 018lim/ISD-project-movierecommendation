@@ -205,6 +205,7 @@
                  height="90rem"
                  alt=""
                  loading="lazy"
+
             />
           </a>
           <!-- Search form -->
@@ -375,7 +376,7 @@
                         </tr>
                     </table>
                 </div>
-                <div style="text-align: center"><a href="/D2/{{ i.id }}/">{{ i.movie_title }}</a></div>
+
           </div>
           <div class="row">
             <div class="col">
@@ -395,7 +396,7 @@
                             src="{{i.poster}}"
                             alt=""
                         />
-                         <div style="text-align: center">{{ i.movie_title }}</div>
+                         <div style="text-align: center"><a href="/D2/{{ i.id }}/"class="linkMovie">{{ i.movie_title }}</a></div>
                     </div>
                 {% endfor %}
             </div>
