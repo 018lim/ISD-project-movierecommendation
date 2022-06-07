@@ -16,6 +16,10 @@
             color : white;
         }
 
+        .linkMovie{
+            color:black;
+        }
+
         @media (min-width: 991.98px) {
           main {
             padding-left: 240px;
@@ -295,7 +299,7 @@
                   <div class="col-2">
 
                       <div><img src="{{ g.poster }}" width="100%"/></div>
-                      <div style="text-align: center"><a href="/D2/{{ g.id }}">{{ g.movie_title }}</a></div>
+                      <div style="text-align: center"><a href="/D2/{{ g.id }}" class="linkMovie">{{ g.movie_title }}</a></div>
                   </div>
 
 
