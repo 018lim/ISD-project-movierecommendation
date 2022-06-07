@@ -36,7 +36,7 @@
                             csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val()
                         },
                         success: function(movies){
-
+                            alert('hi there');
                             window.location = "../D2/" + movies['id'].toString();
                         },
                         error: function (response){

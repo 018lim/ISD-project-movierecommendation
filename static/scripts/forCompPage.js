@@ -1,68 +1,25 @@
-          window.onload = function() {
-
-                var moviesTitles = ["Afghanistan","Albania"];
 
 
-                document.getElementById("search2").onsubmit = function() {
+                var moviesTitles2 = ["Afghanistan","Albania"];
+
+
+                document.getElementById("search").onsubmit = function() {
                     return false;
                 };
 
-                console.log('hello there');
+                console.log('hi there');
 
-                $("#viz").keypress(function(){
+                $("#myInput2").keypress(function(){
                     $.ajax({
                         url: '../searchMovieTitles/',
                         type: 'POST',
                         data: {
-                            movie: $('#viz').val(),
-                            csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val(),
-
-                        },
-                        success: function(movies){
-                            alert('todo ok');
-                            moviesTitles=movies['titles'];
-                            autocomplete(document.getElementById("viz"), moviesTitles);
-                        },
-                        error: function (response){
-                            alert(response["responseJSON"]["error"]);
-                        }
-                    });
-                });
-
-
-
-                $( "#btnSearch" ).click(function() {
-                    $.ajax({
-                        url: '../searchMovieViz/',
-                        type: 'POST',
-                        data: {
-                            movie: $('#myInput').val(),
+                            movie: $('#myInput2').val(),
                             csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val()
                         },
                         success: function(movies){
-
-
-
-                            $( "#tbody" ).append( "<tr> <td>"+movies['title']+"</td> <td><center><btn class='btn btn-sm btn-danger delete deleteBtn' name='"+movies['title']+"'>Delete</btn></center></td> </tr>" );
-
-                            info[0].push(movies['title']);
-                            info[1].push(movies['score']);
-                            data = google.visualization.arrayToDataTable(info);
-                            google.charts.setOnLoadCallback(drawChart);
-
-                            $('btn:last').click(function () {
-
-                                var inInfo = info[0].indexOf($(this).attr('name'));
-
-                                info[0].splice(inInfo, 1);
-                                info[1].splice(inInfo, 1);
-                                data = google.visualization.arrayToDataTable(info);
-                                google.charts.setOnLoadCallback(drawChart);
-
-                                $(this).parent().parent().parent().remove();
-                            });
-
-
+                            moviesTitles2=movies['titles'];
+                            autocomplete(document.getElementById("myInput2"), moviesTitles2);
                         },
                         error: function (response){
                             alert(response["responseJSON"]["error"]);
@@ -70,28 +27,26 @@
                     });
                 });
 
-                var info = [
-                       ['Score'],
-                       ['Out of 10']
-                    ];
-
-                var data = google.visualization.arrayToDataTable(info);
-
-                function drawChart() {
-                    // Define the chart to be drawn.
 
 
-                    var options = {title: 'Comparison between movies'};
+                $( "#btnSearch2" ).click(function() {
+                    $.ajax({
+                        url: '../searchMovieMain/',
+                        type: 'POST',
+                        data: {
+                            movie: $('#myInput2').val(),
+                            csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val()
+                        },
+                        success: function(movies){
+                            window.location = "../D2/" + movies['id'].toString();
+                        },
+                        error: function (response){
+                            alert(response["responseJSON"]["error"]);
+                        }
+                    });
+                });
 
-                    // Instantiate and draw the chart.
-                    var chart = new google.visualization.BarChart(document.getElementById('container2'));
-                    chart.draw(data, options);
-                 }
-                 //google.charts.setOnLoadCallback(drawChart);
-
-
-
-                 function autocomplete(inp, arr) {
+                function autocomplete(inp, arr) {
                   /*the autocomplete function takes two arguments,
                   the text field element and an array of possible autocompleted values:*/
                   var currentFocus;
@@ -187,4 +142,4 @@
                       closeAllLists(e.target);
                   });
                 }
-            };
+

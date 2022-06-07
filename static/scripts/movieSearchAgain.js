@@ -7,8 +7,6 @@
                     return false;
                 };
 
-                console.log('hello there');
-
                 $("#viz").keypress(function(){
                     $.ajax({
                         url: '../searchMovieTitles/',
@@ -19,7 +17,6 @@
 
                         },
                         success: function(movies){
-                            alert('todo ok');
                             moviesTitles=movies['titles'];
                             autocomplete(document.getElementById("viz"), moviesTitles);
                         },
@@ -36,7 +33,7 @@
                         url: '../searchMovieViz/',
                         type: 'POST',
                         data: {
-                            movie: $('#myInput').val(),
+                            movie: $('#viz').val(),
                             csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val()
                         },
                         success: function(movies){

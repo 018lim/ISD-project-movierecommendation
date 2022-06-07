@@ -286,7 +286,7 @@ def vizTest(request):
 
 def searchMovieViz(request):
 
-    movie = MovieInfo.objects.get(movie_title=request.POST['movie'])
+    movie = MovieInfo.objects.filter(movie_title=request.POST['movie'])[:1].get()
     title=movie.movie_title
     score=movie.total_score/movie.ne
     return JsonResponse({"title": title,"score": score}, status=200)
