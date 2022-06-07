@@ -292,7 +292,6 @@ def searchMovieViz(request):
     return JsonResponse({"title": title,"score": score}, status=200)
 
 def searchMovieTitles(request):
-
     movie = list(MovieInfo.objects.filter(movie_title__startswith=request.POST['movie']).values_list('movie_title', flat=True))
 
     return JsonResponse({"titles": movie}, status=200)
