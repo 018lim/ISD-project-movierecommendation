@@ -33,6 +33,9 @@
           width: 240px;
           z-index: 600;
         }
+        .linkMovie{
+            color:black;
+        }
 
         @media (max-width: 991.98px) {
           .sidebar {
@@ -199,10 +202,10 @@
 
             <img
                  src="{% static 'img/movie.png' %}"
-                 height="140rem"
-                 width="220rem"
+                 height="90rem"
                  alt=""
                  loading="lazy"
+
             />
           </a>
           <!-- Search form -->
@@ -293,7 +296,7 @@
                             src="{{i.poster}}"
                             alt=""
                         />
-                        <div style="text-align: center"><a href="/D2/{{ i.id }}/">{{ i.movie_title }}</a></div>
+                        <div style="text-align: center"><a href="/D2/{{ i.id }}/"class="linkMovie">{{ i.movie_title }}</a></div>
 
                     </div>
                 {% endfor %}
@@ -373,7 +376,7 @@
                         </tr>
                     </table>
                 </div>
-                <div style="text-align: center"><a href="/D2/{{ i.id }}/">{{ i.movie_title }}</a></div>
+
           </div>
           <div class="row">
             <div class="col">
@@ -393,7 +396,7 @@
                             src="{{i.poster}}"
                             alt=""
                         />
-                         <div style="text-align: center">{{ i.movie_title }}</div>
+                         <div style="text-align: center"><a href="/D2/{{ i.id }}/"class="linkMovie">{{ i.movie_title }}</a></div>
                     </div>
                 {% endfor %}
             </div>
